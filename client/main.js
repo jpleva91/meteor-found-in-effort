@@ -7,6 +7,7 @@ import App from './components/app';
 const routes = (
   <Router history={browserHistory}>
     <Route path ="/" component={App}>
+    </Route>
   </Router>
 );
 
