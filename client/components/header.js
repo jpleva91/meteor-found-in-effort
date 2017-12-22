@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Accounts from './accounts';
 import { Link, browserHistory } from 'react-router';
 
 class Header extends Component {
@@ -11,7 +12,7 @@ class Header extends Component {
         </div>
         <ul className="nav navbar-nav">
           <li>
-            Accounts
+            <Accounts />
           </li>
           <li>
             <a href="#">Motivations</a>
