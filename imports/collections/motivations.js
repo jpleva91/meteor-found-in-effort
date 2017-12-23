@@ -2,11 +2,18 @@ import { Mongo } from 'meteor/mongo';
 
 Meteor.methods({
   'motivations.insert': function() {
-    return Motivations.insert({
-      createdAt: new Date(),
-      content: '',
-      author: ''
-    });
+    const user = Meteor.users.findOne(this.userId);
+    const email = user.emails[0].address;
+    
+    if(email == 'djhoppy23@gmail.com') {
+      return Motivations.insert({
+        createdAt: new Date(),
+        content: '',
+        author: ''
+      });
+    } else {
+      return;
+    }
   },
 
   'motivations.remove': function(motivation) {

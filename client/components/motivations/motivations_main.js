@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
 import { Motivations } from '../../../imports/collections/motivations';
 import MotivationsList from './motivations_list';
 import { browserHistory } from 'react-router/lib';
