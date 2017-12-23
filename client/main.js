@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import App from './components/app';
-import MotivationsList from './components/motivations/motivations_list';
+import MotivationsMain from './components/motivations/motivations_main';
 
 const routes = (
   <Router history={browserHistory}>
     <Route path ="/" component={App}>
-      <Route path="motivations" component={MotivationsList} />
+      <Route path="motivations" component={MotivationsMain} />
     </Route>
   </Router>
 );
