@@ -5,15 +5,17 @@ Meteor.methods({
     const user = Meteor.users.findOne(this.userId);
     const email = user.emails[0].address;
     
-    if(email == 'djhoppy23@gmail.com') {
+    if (email == 'djhoppy23@gmail.com') {
+
       return Motivations.insert({
         createdAt: new Date(),
         content: '',
         author: ''
       });
-    } else {
-      return;
+
     }
+    
+    else { return; }
   },
 
   'motivations.remove': function(motivation) {
