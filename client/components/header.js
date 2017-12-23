@@ -15,7 +15,7 @@ class Header extends Component {
             <Accounts />
           </li>
           <li>
-            <a href="#">Motivations</a>
+            <Link to="/motivations">Motivations</Link>
           </li>
           <li>
             <a href="#">Mentors</a>
