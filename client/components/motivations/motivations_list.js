@@ -37,7 +37,7 @@ class MotivationsList extends Component {
   }
 }
 
-export default  createContainer(() => {
+export default createContainer(() => {
   Meteor.subscribe('motivations');
 
   return { motivations: Motivations.find({}).fetch() };
