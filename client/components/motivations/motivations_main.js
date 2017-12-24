@@ -7,7 +7,9 @@ class MotivationsMain extends Component {
   onMotivationClick(event) {
     event.preventDefault();
 
-    Meteor.call('motivations.insert', (error, motivationId) => {});
+    Meteor.call('motivations.insert', (error, motivationId) => {
+      browserHistory.push(`/motivations/${motivationId}`);
+    });
   }
 
   render() {

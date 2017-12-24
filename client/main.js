@@ -4,12 +4,14 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import App from './components/app';
 import MotivationsMain from './components/motivations/motivations_main';
+import MotivationViewer from './components/motivations/motivations_viewer';
 import { Motivations } from '../imports/collections/motivations';
 
 const routes = (
   <Router history={browserHistory}>
     <Route path ="/" component={App}>
       <Route path="motivations" component={MotivationsMain} />
+      <Route path="motivations/:motivationId" component={MotivationViewer} />
     </Route>
   </Router>
 );
