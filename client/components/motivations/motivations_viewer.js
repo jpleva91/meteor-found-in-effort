@@ -5,6 +5,8 @@ import MotivationsEditor from './motivations_editor';
 
 class MotivationViewer extends Component {
   render() {
+    if(!this.props.motivation) { return <div>Loading...</div>};
+    
     return (
       <div>
         <MotivationsEditor motivation={this.props.motivation} />

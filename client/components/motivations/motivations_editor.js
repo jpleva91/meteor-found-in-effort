@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 class MotivationsEditor extends Component {
   constructor(props) {
@@ -7,8 +8,7 @@ class MotivationsEditor extends Component {
     this.state={
       content: this.props.motivation.content,
       author: this.props.motivation.author,
-      saved: false,
-      deleted: false
+      saved: false
     };
   }
 
@@ -44,12 +44,32 @@ class MotivationsEditor extends Component {
   }
   
   render() {
-    if(this.state.saved) { return <div className="alert alert-success"><strong>Saved!</strong></div> };
-    if(this.state.deleted) { return <div className="alert alert-danger"><strong>Deleted</strong></div> };
+    const url= '/motivations';
+
+    if(this.state.saved) {
+      
+      return (
+        <div className="col-xs-8">
+          <div className="alert alert-success">
+            <strong>Saved!</strong>
+          </div>
+          <span>
+            <Link
+              to={url}
+              className="btn btn-space btn-primary">
+                Return to Motivations
+            </Link>
+          </span>
+        </div>
+      );
+    };
 
     return (
       <div className="form-group col-xs-8">
         <div>
+          <div className="alert alert-warning">
+            <strong>You are editing a new Motivation of the Day, please select save or remove to update it!</strong>
+          </div>
           <label>Content</label>
           <textarea 
             value={this.state.content}
@@ -73,11 +93,12 @@ class MotivationsEditor extends Component {
             className="btn btn-space btn-success">
               Save
           </button>
-          <button
+          <Link
+            to={url}
             onClick={this.onButtonRemove.bind(this)}
             className="btn btn-space btn-danger">
               Remove
-          </button>
+          </Link>
         </span>
       </div>
     );
