@@ -11,9 +11,11 @@ class MotivationsList extends Component {
   renderList() {
     return this.props.motivations.map(motivation => {
       
+      const motivationOfTheDay = motivation.createdAt.toString();
+
       return (
         <li className="list-group-item" key={motivation._id}>
-          <a href="#">Motivation </a>
+          <a href="#">Motivation of the Day for {motivationOfTheDay}</a>
           <span className="pull-right">
             <button
               className="btn btn-danger"
