@@ -9,13 +9,13 @@ class MotivationsList extends Component {
   }
 
   renderList() {
-    return this.props.motivations.map(motivation => {
+    return this.props.motivations.reverse().map(motivation => {
       const url = `/motivations/${motivation._id}`;
-      const motivationOfTheDay = motivation.createdAt.toString();
+      const motivationOfTheDay = motivation.createdAt.toString().substring(0,16);
 
       return (
         <li className="list-group-item" key={motivation._id}>
-          <Link to={url}>Motivation of the Day for {motivationOfTheDay}</Link>
+          <Link to={url}>{motivationOfTheDay} by {motivation.author}</Link>
           <span className="pull-right">
             <button
               className="btn btn-danger"

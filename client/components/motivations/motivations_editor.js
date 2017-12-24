@@ -6,26 +6,47 @@ class MotivationsEditor extends Component {
 
     this.state={
       content: this.props.motivation.content,
-      author: this.props.motivation.author
+      author: this.props.motivation.author,
+      saved: false,
+      deleted: false
     };
   }
 
   onContentChange(event) {
-    this.setState({ content: event.target.value });
+    this.setState({ 
+      content: event.target.value,
+      saved: false
+    });
   }
 
   onAuthorChange(event) {
-    this.setState({ author: event.target.value });
+    this.setState({ 
+      author: event.target.value,
+      saved: false
+    });
   }
 
   onButtonSave() {
-    console.log(`content: ${this.state.content}`);
-    console.log(`author: ${this.state.author}`);
+    Meteor.call(
+      'motivations.update',
+      this.props.motivation,
+      this.state.content,
+      this.state.author
+    );
 
-    Meteor.call('motivations.update', this.props.motivation, this.state.content, this.state.author);
+    this.setState({ saved: true });
+  }
+
+  onButtonRemove() {
+    Meteor.call('motivations.remove', this.props.motivation);
+
+    this.setState({ deleted: true });
   }
   
   render() {
+    if(this.state.saved) { return <div className="alert alert-success"><strong>Saved!</strong></div> };
+    if(this.state.deleted) { return <div className="alert alert-danger"><strong>Deleted</strong></div> };
+
     return (
       <div className="form-group col-xs-8">
         <div>
@@ -51,6 +72,11 @@ class MotivationsEditor extends Component {
             onClick={this.onButtonSave.bind(this)}
             className="btn btn-space btn-success">
               Save
+          </button>
+          <button
+            onClick={this.onButtonRemove.bind(this)}
+            className="btn btn-space btn-danger">
+              Remove
           </button>
         </span>
       </div>
