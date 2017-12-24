@@ -14,7 +14,7 @@ Meteor.startup(() => {
 
 app.get('/api/motivations', (req, res) => {
   const data = Motivations.find().fetch();
-  res.status(200).json({ data });
+  res.status(200).send({ data });
 });
 
 WebApp.connectHandlers.use(app);
