@@ -7,6 +7,10 @@
   height: 55px;
 }
 
+.btn-space {
+  margin-top: 18px;
+}
+
 body {
   background: #FFFFFF;
 }

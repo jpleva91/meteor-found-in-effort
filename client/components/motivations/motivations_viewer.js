@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Motivations } from '../../../imports/collections/motivations';
+import MotivationsEditor from './motivations_editor';
 
 class MotivationViewer extends Component {
   render() {
@@ -8,7 +9,7 @@ class MotivationViewer extends Component {
     
     return (
       <div>
-        MotivationViewer
+        <MotivationsEditor motivation={this.props.motivation} />
       </div>
     );
   }
