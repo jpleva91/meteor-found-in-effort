@@ -15,9 +15,6 @@ const routes = (
       <Route path="motivations" component={MotivationsMain} />
       <Route path="motivations/:motivationId" component={MotivationViewer} />
     </Route>
-    <Route path ="/api" component={Api}>
-      <Route path="motivations" component={ApiMotivations} />
-    </Route>
   </Router>
 );
 
